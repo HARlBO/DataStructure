@@ -1,25 +1,29 @@
 package sort;
-
+/*
+ * 
+ * 선택정렬 (Selection Sort)
+ * 
+ */
 public class SelectionSort {	
 	public static void main(String[] args) {
-		int[] arr = { 15, 11, 1, 3, 7};
+		int[] arr = {15, 11, 1, 3, 7};
 		int tmp = 0;
 		int min = 0;
 		
-		for (int i = 0; i < arr.length; i++) {
-			min = arr[i];
-			for (int j = 0; j < arr.length; j++) {
-				if (min > arr[j+1]) {
-					min = arr[j+1];
-					tmp = j+1;
+		for (int i = 0; i < arr.length-1; i++) {
+			min = i;
+			for (int j = i+1; j < arr.length; j++) {
+				if (arr[min] > arr[j]) {
+					min = j;
 				}
 			}
-			arr[tmp] = arr[i];
-			arr[i] = min;
+			tmp = arr[min];
+			arr[min] = arr[i];
+			arr[i] = tmp;
 		}
 
 		for (int i = 0; i < arr.length; i++) {
-			System.out.println(arr[i]+" ");
+			System.out.print(arr[i]+" ");
 		}
 	}
 }
